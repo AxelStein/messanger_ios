@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatOwnTextCell" id="vd3-fM-Rpi" customClass="ChatTextCell" customModule="Messenger" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vd3-fM-Rpi" id="AQe-9g-WTw">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNe-3J-gev" customClass="BubbleView" customModule="Messenger" customModuleProvider="target">
+                        <rect key="frame" x="246" y="3" width="168" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Message            " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVx-yf-lN5">
+                                <rect key="frame" x="12" y="8" width="132" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rn3-jh-p1q">
+                                <rect key="frame" x="96.5" y="18.5" width="33.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.3411764706" green="0.69803921570000005" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oF7-f4-XKG">
+                                <rect key="frame" x="132" y="18.5" width="16" height="15"/>
+                                <color key="tintColor" red="0.3411764706" green="0.69803921570000005" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Znd-ik-8sd"/>
+                                    <constraint firstAttribute="width" constant="16" id="hvC-sF-JKf"/>
+                                </constraints>
+                                <imageReference key="image" image="checkmark.circle.fill" catalog="system" symbolScale="default"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oF7-f4-XKG" firstAttribute="leading" secondItem="rn3-jh-p1q" secondAttribute="trailing" constant="2" id="G2K-0d-rkJ"/>
+                            <constraint firstAttribute="trailing" secondItem="gVx-yf-lN5" secondAttribute="trailing" constant="24" id="Ker-wc-kgD"/>
+                            <constraint firstAttribute="bottom" secondItem="gVx-yf-lN5" secondAttribute="bottom" constant="8" id="Q2k-aL-ylS"/>
+                            <constraint firstItem="gVx-yf-lN5" firstAttribute="leading" secondItem="sNe-3J-gev" secondAttribute="leading" constant="12" id="RxF-VZ-SRh"/>
+                            <constraint firstAttribute="bottom" secondItem="rn3-jh-p1q" secondAttribute="bottom" constant="8" id="TjU-5b-Xdc"/>
+                            <constraint firstAttribute="trailing" secondItem="oF7-f4-XKG" secondAttribute="trailing" constant="20" id="U9w-IK-PVe"/>
+                            <constraint firstItem="gVx-yf-lN5" firstAttribute="top" secondItem="sNe-3J-gev" secondAttribute="top" constant="8" id="XiT-3p-r9Q"/>
+                            <constraint firstItem="oF7-f4-XKG" firstAttribute="centerY" secondItem="rn3-jh-p1q" secondAttribute="centerY" id="gjm-FA-Nj7"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isOwn" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="sNe-3J-gev" secondAttribute="trailing" id="KbQ-kP-xVY"/>
+                    <constraint firstAttribute="bottom" secondItem="sNe-3J-gev" secondAttribute="bottom" id="mM4-Ua-oOi"/>
+                    <constraint firstItem="sNe-3J-gev" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AQe-9g-WTw" secondAttribute="leading" constant="64" id="mMw-rG-IYD"/>
+                    <constraint firstItem="sNe-3J-gev" firstAttribute="top" secondItem="AQe-9g-WTw" secondAttribute="top" constant="3" id="vKv-7S-TQy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bubbleTopConstraint" destination="vKv-7S-TQy" id="McU-iR-8AA"/>
+                <outlet property="bubbleView" destination="sNe-3J-gev" id="m8f-vI-SBx"/>
+                <outlet property="messageLabel" destination="gVx-yf-lN5" id="351-v3-E9W"/>
+                <outlet property="readStatus" destination="oF7-f4-XKG" id="5uC-yf-YOi"/>
+                <outlet property="timeLabel" destination="rn3-jh-p1q" id="Rl8-0g-Wmr"/>
+            </connections>
+            <point key="canvasLocation" x="113" y="121"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

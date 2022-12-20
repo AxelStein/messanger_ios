@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatPartnerImageTextCell" rowHeight="171" id="a9C-6B-bIF" customClass="ChatImageTextCell" customModule="Messenger" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="171"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a9C-6B-bIF" id="DaU-cr-98D">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="171"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEn-dZ-Swf" userLabel="bubble view" customClass="BubbleView" customModule="Messenger" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="6" width="167" height="165"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ane-xr-26o">
+                                <rect key="frame" x="12" y="0.0" width="155" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="hie-Ln-TQ7"/>
+                                    <constraint firstAttribute="width" constant="155" id="nXl-B2-9Le"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message                            " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mS-jG-fUr" userLabel="message">
+                                <rect key="frame" x="24" y="136" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBL-0P-nIm" userLabel="time">
+                                <rect key="frame" x="121.5" y="142.5" width="33.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ane-xr-26o" secondAttribute="trailing" id="24i-wr-de2"/>
+                            <constraint firstAttribute="bottom" secondItem="6mS-jG-fUr" secondAttribute="bottom" constant="8" id="GFk-uw-U7R"/>
+                            <constraint firstAttribute="trailing" secondItem="6mS-jG-fUr" secondAttribute="trailing" constant="12" id="Gvt-px-vUg"/>
+                            <constraint firstAttribute="trailing" secondItem="eBL-0P-nIm" secondAttribute="trailing" constant="12" id="M1B-GN-fai"/>
+                            <constraint firstItem="6mS-jG-fUr" firstAttribute="leading" secondItem="GEn-dZ-Swf" secondAttribute="leading" constant="24" id="Zme-6Q-8Vw"/>
+                            <constraint firstItem="ane-xr-26o" firstAttribute="leading" secondItem="GEn-dZ-Swf" secondAttribute="leading" constant="12" id="mP2-fS-V7Y"/>
+                            <constraint firstAttribute="bottom" secondItem="eBL-0P-nIm" secondAttribute="bottom" constant="8" id="nCd-YH-EJ8"/>
+                            <constraint firstItem="6mS-jG-fUr" firstAttribute="top" secondItem="ane-xr-26o" secondAttribute="bottom" constant="8" id="pZM-j0-XEn"/>
+                            <constraint firstItem="ane-xr-26o" firstAttribute="top" secondItem="GEn-dZ-Swf" secondAttribute="top" id="xw1-J3-Y2v"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isOwn" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GEn-dZ-Swf" secondAttribute="trailing" constant="64" id="I3z-b4-xI8"/>
+                    <constraint firstAttribute="bottom" secondItem="GEn-dZ-Swf" secondAttribute="bottom" id="PMN-CO-ZFU"/>
+                    <constraint firstItem="GEn-dZ-Swf" firstAttribute="leading" secondItem="DaU-cr-98D" secondAttribute="leading" id="Vmu-H1-lAw"/>
+                    <constraint firstItem="GEn-dZ-Swf" firstAttribute="top" secondItem="DaU-cr-98D" secondAttribute="top" constant="6" id="yqa-Q5-V8q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bubbleView" destination="GEn-dZ-Swf" id="jH6-VN-pZN"/>
+                <outlet property="messageLabel" destination="6mS-jG-fUr" id="KaG-YX-zeg"/>
+                <outlet property="photo" destination="ane-xr-26o" id="qBR-dX-uf9"/>
+                <outlet property="timeLabel" destination="eBL-0P-nIm" id="6a5-Fc-V0L"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="193.19196428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

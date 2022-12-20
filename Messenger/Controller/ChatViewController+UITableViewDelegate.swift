@@ -63,6 +63,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatImageCell
                 cell.setMessage(message)
                 return cell
+            } else if message.content.file != nil {
+                let id = message.isOwn ? "ChatOwnFileCell" : "ChatPartnerFileCell"
+                let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatFileCell
+                cell.setMessage(message)
+                return cell
             } else {
                 let id = message.isOwn ? "ChatOwnTextCell" : "ChatPartnerTextCell"
                 

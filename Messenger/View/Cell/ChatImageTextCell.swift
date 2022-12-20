@@ -53,7 +53,6 @@ class ChatImageTextCell: UITableViewCell {
         }
         
         let offset = message.isOwn ? "            \u{200c}" : "         \u{200c}"
-        
         if let text = message.content.text {
             messageLabel.text = text.trimmingCharacters(in: .init(charactersIn: "\"")) + offset
         } else {

@@ -16,6 +16,8 @@
 		FA31C8012950487A00327D05 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31C8002950487A00327D05 /* ChatInfo.swift */; };
 		FA31C8032950871300327D05 /* ChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31C8022950871300327D05 /* ChannelApi.swift */; };
 		FA31C8052950970F00327D05 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31C8042950970F00327D05 /* ImageLoader.swift */; };
+		FA3BED002951FB6F00AA7097 /* ChatFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BECFE2951FB6F00AA7097 /* ChatFileCell.swift */; };
+		FA3BED012951FB6F00AA7097 /* ChatOwnFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3BECFF2951FB6F00AA7097 /* ChatOwnFileCell.xib */; };
 		FA57B061294660FA008A8B4A /* ChatTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B060294660FA008A8B4A /* ChatTextCell.swift */; };
 		FA71E75C29511D9200C891A3 /* ChatImageTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */; };
 		FA8CFFC4294A80B1005ADF69 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CFFC3294A80B1005ADF69 /* ChannelCell.swift */; };
@@ -26,6 +28,13 @@
 		FAA11015294E10F900D8DA7B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA11014294E10F900D8DA7B /* Api.swift */; };
 		FAA11017294E115500D8DA7B /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA11016294E115500D8DA7B /* DefaultsKeys.swift */; };
 		FAA6B111294A3DBE006B6934 /* ChatDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6B110294A3DBE006B6934 /* ChatDateCell.swift */; };
+		FAC1D8E6295271BA00C5DDD4 /* ChatPartnerFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8E5295271BA00C5DDD4 /* ChatPartnerFileCell.xib */; };
+		FAC1D8E82952E8F800C5DDD4 /* ChatOwnTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8E72952E8F800C5DDD4 /* ChatOwnTextCell.xib */; };
+		FAC1D8EA29530E3300C5DDD4 /* ChatPartnerTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8E929530E3300C5DDD4 /* ChatPartnerTextCell.xib */; };
+		FAC1D8EC2953152700C5DDD4 /* ChatOwnImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8EB2953152700C5DDD4 /* ChatOwnImageCell.xib */; };
+		FAC1D8EE295315F300C5DDD4 /* ChatPartnerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */; };
+		FAC1D8F02953173E00C5DDD4 /* ChatOwnImageTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8EF2953173E00C5DDD4 /* ChatOwnImageTextCell.xib */; };
+		FAC1D8F2295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */; };
 		FADF5F00293CB110002A89C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5EFF293CB110002A89C8 /* AppDelegate.swift */; };
 		FADF5F02293CB110002A89C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5F01293CB110002A89C8 /* SceneDelegate.swift */; };
 		FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5F05293CB110002A89C8 /* Main.storyboard */; };
@@ -46,6 +55,8 @@
 		FA31C8002950487A00327D05 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
 		FA31C8022950871300327D05 /* ChannelApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelApi.swift; sourceTree = "<group>"; };
 		FA31C8042950970F00327D05 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		FA3BECFE2951FB6F00AA7097 /* ChatFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFileCell.swift; sourceTree = "<group>"; };
+		FA3BECFF2951FB6F00AA7097 /* ChatOwnFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnFileCell.xib; sourceTree = "<group>"; };
 		FA57B060294660FA008A8B4A /* ChatTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextCell.swift; sourceTree = "<group>"; };
 		FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageTextCell.swift; sourceTree = "<group>"; };
 		FA8CFFC3294A80B1005ADF69 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
@@ -56,6 +67,13 @@
 		FAA11014294E10F900D8DA7B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		FAA11016294E115500D8DA7B /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		FAA6B110294A3DBE006B6934 /* ChatDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateCell.swift; sourceTree = "<group>"; };
+		FAC1D8E5295271BA00C5DDD4 /* ChatPartnerFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerFileCell.xib; sourceTree = "<group>"; };
+		FAC1D8E72952E8F800C5DDD4 /* ChatOwnTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnTextCell.xib; sourceTree = "<group>"; };
+		FAC1D8E929530E3300C5DDD4 /* ChatPartnerTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerTextCell.xib; sourceTree = "<group>"; };
+		FAC1D8EB2953152700C5DDD4 /* ChatOwnImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnImageCell.xib; sourceTree = "<group>"; };
+		FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerImageCell.xib; sourceTree = "<group>"; };
+		FAC1D8EF2953173E00C5DDD4 /* ChatOwnImageTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnImageTextCell.xib; sourceTree = "<group>"; };
+		FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerImageTextCell.xib; sourceTree = "<group>"; };
 		FADF5EFC293CB110002A89C8 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADF5EFF293CB110002A89C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADF5F01293CB110002A89C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +165,15 @@
 				FAA6B110294A3DBE006B6934 /* ChatDateCell.swift */,
 				FA1A16852950F63600699E76 /* ChatImageCell.swift */,
 				FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */,
+				FA3BECFE2951FB6F00AA7097 /* ChatFileCell.swift */,
+				FAC1D8E5295271BA00C5DDD4 /* ChatPartnerFileCell.xib */,
+				FAC1D8EB2953152700C5DDD4 /* ChatOwnImageCell.xib */,
+				FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */,
+				FA3BECFF2951FB6F00AA7097 /* ChatOwnFileCell.xib */,
+				FAC1D8E72952E8F800C5DDD4 /* ChatOwnTextCell.xib */,
+				FAC1D8EF2953173E00C5DDD4 /* ChatOwnImageTextCell.xib */,
+				FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */,
+				FAC1D8E929530E3300C5DDD4 /* ChatPartnerTextCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -246,8 +273,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADF5F0C293CB113002A89C8 /* LaunchScreen.storyboard in Resources */,
+				FAC1D8F02953173E00C5DDD4 /* ChatOwnImageTextCell.xib in Resources */,
+				FA3BED012951FB6F00AA7097 /* ChatOwnFileCell.xib in Resources */,
 				FADF5F09293CB113002A89C8 /* Assets.xcassets in Resources */,
+				FAC1D8EA29530E3300C5DDD4 /* ChatPartnerTextCell.xib in Resources */,
+				FAC1D8EC2953152700C5DDD4 /* ChatOwnImageCell.xib in Resources */,
+				FAC1D8EE295315F300C5DDD4 /* ChatPartnerImageCell.xib in Resources */,
+				FAC1D8E82952E8F800C5DDD4 /* ChatOwnTextCell.xib in Resources */,
 				FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */,
+				FAC1D8E6295271BA00C5DDD4 /* ChatPartnerFileCell.xib in Resources */,
+				FAC1D8F2295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +342,7 @@
 				FA31C7F829503A6F00327D05 /* LoginViewController.swift in Sources */,
 				FA57B061294660FA008A8B4A /* ChatTextCell.swift in Sources */,
 				FA71E75C29511D9200C891A3 /* ChatImageTextCell.swift in Sources */,
+				FA3BED002951FB6F00AA7097 /* ChatFileCell.swift in Sources */,
 				FA8CFFC4294A80B1005ADF69 /* ChannelCell.swift in Sources */,
 				FA31C8032950871300327D05 /* ChannelApi.swift in Sources */,
 				FA31C7FD29503CB600327D05 /* ResponseAuth.swift in Sources */,

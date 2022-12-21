@@ -101,6 +101,11 @@ extension Message.Content {
         guard let file = file else { return false }
         return file.mimeType.starts(with: "video/")
     }
+    
+    var isAudioFile: Bool {
+        guard let file = file else { return false }
+        return file.mimeType.starts(with: "audio/")
+    }
 }
 
 struct ChatHistory: Codable {

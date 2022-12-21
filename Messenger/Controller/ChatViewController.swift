@@ -7,6 +7,7 @@
 
 import UIKit
 import ReverseExtension
+import AVFoundation
 
 class ChatViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
@@ -24,6 +25,7 @@ class ChatViewController: UIViewController {
     var items = [Item]()
     var links = ChatHistory.Links(first: nil, last: nil, prev: nil, next: nil)
     private let api = ChatApi()
+    private var audioPlayer: AVPlayer? = nil
     
     override func viewDidLoad() {
         let title = UILabel()
@@ -44,7 +46,7 @@ class ChatViewController: UIViewController {
         
         navigationItem.titleView = stack
 
-        let size = CGFloat(40)
+        let size = CGFloat(36)
         let img = UIImage(named: "img")?.resized(to: CGSize(width: size, height: size))
         let avatarView = UIImageView(image: img)
         avatarView.layer.cornerRadius = size / 2
@@ -74,6 +76,8 @@ class ChatViewController: UIViewController {
             "ChatPartnerImageCell",
             "ChatOwnImageTextCell",
             "ChatPartnerImageTextCell",
+            "ChatOwnAudioCell",
+            "ChatPartnerAudioCell",
         ]
         cellNames.forEach {
             registerTableViewCell(name: $0)
@@ -101,6 +105,30 @@ class ChatViewController: UIViewController {
         fabScrollDown.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scrollDown)))
         
         initChat()
+    }
+    
+    private func playAudio(path: String) {
+        guard let url = URL(string: path) else { return }
+        
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+        
+        let token = UserDefaults.standard.string(forKey: DefaultsKeys.authToken) ?? ""
+        let headers = ["Authorization" : "Bearer \(token)"]
+        let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey" : headers])
+        let item = AVPlayerItem(asset: asset)
+        
+        if let audioPlayer = audioPlayer {
+            audioPlayer.replaceCurrentItem(with: item)
+        } else {
+            audioPlayer = AVPlayer(playerItem: item)
+        }
+        audioPlayer?.volume = 1
+        audioPlayer?.play()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        audioPlayer?.pause()
+        audioPlayer = nil
     }
     
     private func registerTableViewCell(name: String) {
@@ -330,6 +358,12 @@ extension ChatViewController: UITextViewDelegate {
         let text = textView.text ?? ""
         placeholder.isHidden = !text.isEmpty
         textView.adjustHeight()
+    }
+}
+
+extension ChatViewController: ChatAudioCellDelegate {
+    func onPlayClick(path: String) {
+        playAudio(path: path)
     }
 }
 

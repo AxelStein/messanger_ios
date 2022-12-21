@@ -35,6 +35,9 @@
 		FAC1D8EE295315F300C5DDD4 /* ChatPartnerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */; };
 		FAC1D8F02953173E00C5DDD4 /* ChatOwnImageTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8EF2953173E00C5DDD4 /* ChatOwnImageTextCell.xib */; };
 		FAC1D8F2295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */; };
+		FAC1D8F6295326A400C5DDD4 /* ChatOwnAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */; };
+		FAC1D8F829532B0200C5DDD4 /* ChatPartnerAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */; };
+		FAC1D8FA29532B8F00C5DDD4 /* ChatAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */; };
 		FADF5F00293CB110002A89C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5EFF293CB110002A89C8 /* AppDelegate.swift */; };
 		FADF5F02293CB110002A89C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5F01293CB110002A89C8 /* SceneDelegate.swift */; };
 		FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5F05293CB110002A89C8 /* Main.storyboard */; };
@@ -74,6 +77,9 @@
 		FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerImageCell.xib; sourceTree = "<group>"; };
 		FAC1D8EF2953173E00C5DDD4 /* ChatOwnImageTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnImageTextCell.xib; sourceTree = "<group>"; };
 		FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerImageTextCell.xib; sourceTree = "<group>"; };
+		FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnAudioCell.xib; sourceTree = "<group>"; };
+		FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerAudioCell.xib; sourceTree = "<group>"; };
+		FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAudioCell.swift; sourceTree = "<group>"; };
 		FADF5EFC293CB110002A89C8 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADF5EFF293CB110002A89C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADF5F01293CB110002A89C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,11 +167,14 @@
 			isa = PBXGroup;
 			children = (
 				FA8CFFC3294A80B1005ADF69 /* ChannelCell.swift */,
+				FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */,
 				FA57B060294660FA008A8B4A /* ChatTextCell.swift */,
 				FAA6B110294A3DBE006B6934 /* ChatDateCell.swift */,
 				FA1A16852950F63600699E76 /* ChatImageCell.swift */,
 				FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */,
 				FA3BECFE2951FB6F00AA7097 /* ChatFileCell.swift */,
+				FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */,
+				FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */,
 				FAC1D8E5295271BA00C5DDD4 /* ChatPartnerFileCell.xib */,
 				FAC1D8EB2953152700C5DDD4 /* ChatOwnImageCell.xib */,
 				FAC1D8ED295315F300C5DDD4 /* ChatPartnerImageCell.xib */,
@@ -273,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADF5F0C293CB113002A89C8 /* LaunchScreen.storyboard in Resources */,
+				FAC1D8F829532B0200C5DDD4 /* ChatPartnerAudioCell.xib in Resources */,
 				FAC1D8F02953173E00C5DDD4 /* ChatOwnImageTextCell.xib in Resources */,
 				FA3BED012951FB6F00AA7097 /* ChatOwnFileCell.xib in Resources */,
 				FADF5F09293CB113002A89C8 /* Assets.xcassets in Resources */,
@@ -283,6 +293,7 @@
 				FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */,
 				FAC1D8E6295271BA00C5DDD4 /* ChatPartnerFileCell.xib in Resources */,
 				FAC1D8F2295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib in Resources */,
+				FAC1D8F6295326A400C5DDD4 /* ChatOwnAudioCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +360,7 @@
 				FAA1100B294DEB3800D8DA7B /* Ext.swift in Sources */,
 				FAA11017294E115500D8DA7B /* DefaultsKeys.swift in Sources */,
 				FAA11015294E10F900D8DA7B /* Api.swift in Sources */,
+				FAC1D8FA29532B8F00C5DDD4 /* ChatAudioCell.swift in Sources */,
 				FADF5F02293CB110002A89C8 /* SceneDelegate.swift in Sources */,
 				FAA11013294DECDB00D8DA7B /* ChatViewController+UITableViewDelegate.swift in Sources */,
 				FA31C8012950487A00327D05 /* ChatInfo.swift in Sources */,

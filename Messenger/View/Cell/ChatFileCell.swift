@@ -35,16 +35,11 @@ class ChatFileCell: UITableViewCell {
         timeLabel.text = message.time
         
         let offset = message.isOwn ? "            \u{200c}" : "         \u{200c}"
-        // messageLabel.translatesAutoresizingMaskIntoConstraints = true
         let text = message.content.text ?? ""
         if !text.isEmpty {
             messageLabel.text = text.trimmingCharacters(in: .init(charactersIn: "\"")) + offset
-            messageLabel.sizeToFit()
         } else {
             messageLabel.text = nil
-            var fr = messageLabel.frame
-            fr.size = CGSize(width: fr.width, height: .zero)
-            messageLabel.frame = fr
         }
         
         let iconName = message.isRead ? "baseline_done_all_black_18pt" : "baseline_done_black_18pt"

@@ -43,37 +43,35 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let item = item as? MessageItem {
             let message = item.data
-            if message.content.isImageFile || message.content.isVideoFile {
-                let text = message.content.text
-                if let text = text, !text.isEmpty {
-                    let id = message.isOwn ? "ChatOwnImageTextCell" : "ChatPartnerImageTextCell"
-                    let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatImageTextCell
-                    cell.setMessage(message)
-                    return cell
-                }
-                
-                let id = message.isOwn ? "ChatOwnImageCell" : "ChatPartnerImageCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatImageCell
-                cell.setMessage(message)
-                return cell
-            } else if message.content.isAudioFile {
-                let id = message.isOwn ? "ChatOwnAudioCell" : "ChatPartnerAudioCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatAudioCell
-                cell.setMessage(message)
-                cell.delegate = self
-                return cell
-            } else if message.content.file != nil {
-                let id = message.isOwn ? "ChatOwnFileCell" : "ChatPartnerFileCell"
-                let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatFileCell
-                cell.setMessage(message)
-                return cell
-            } else {
-                let id = message.isOwn ? "ChatOwnTextCell" : "ChatPartnerTextCell"
-                
-                let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatTextCell
-                cell.setMessage(message)
-                return cell
+            
+            var id = ""
+            switch message.content.mimeType {
+                case .image, .video:
+                    let text = message.content.text
+                    if let text = text, !text.isEmpty {
+                        id = message.isOwn ? "ChatOwnImageTextCell" : "ChatPartnerImageTextCell"
+                    } else {
+                        id = message.isOwn ? "ChatOwnImageCell" : "ChatPartnerImageCell"
+                    }
+                    
+                case .audio:
+                    id = message.isOwn ? "ChatOwnAudioCell" : "ChatPartnerAudioCell"
+                    
+                case .text:
+                    id = message.isOwn ? "ChatOwnTextCell" : "ChatPartnerTextCell"
+                    
+                case .file:
+                    id = message.isOwn ? "ChatOwnFileCell" : "ChatPartnerFileCell"
             }
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+            if let cell = cell as? ChatAudioCell {
+                cell.delegate = self
+            }
+            if let cell = cell as? ChatCell {
+                cell.setMessage(message)
+            }
+            return cell
         }
         
         if let item = item as? DateItem {

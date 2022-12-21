@@ -8,10 +8,10 @@
 import UIKit
 
 protocol ChatAudioCellDelegate {
-    func onPlayClick(path: String)
+    func onPlayClick(message: Message.Data)
 }
 
-class ChatAudioCell: UITableViewCell {
+class ChatAudioCell: UITableViewCell, ChatCell {
     @IBOutlet weak var bubbleView: BubbleView!
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var fileInfoLabel: UILabel!
@@ -22,6 +22,7 @@ class ChatAudioCell: UITableViewCell {
     @IBOutlet weak var playButton: UIImageView!
     @IBOutlet weak var bubbleTopConstraint: NSLayoutConstraint!
     
+    private var message: Message.Data? = nil
     private var messageId: Int64 = 0
     private var path: String? = nil
     var delegate: ChatAudioCellDelegate? = nil
@@ -38,31 +39,19 @@ class ChatAudioCell: UITableViewCell {
     }
     
     @objc func onPlayButtonClick(_ sender: Any) {
-        if let path = path {
-            delegate?.onPlayClick(path: path)
+        if let message = message {
+            delegate?.onPlayClick(message: message)
         }
     }
     
     func setMessage(_ message: Message.Data) {
+        self.message = message
         messageId = message.id
         path = message.content.file?.urlForDownload
         
         fileNameLabel.text = message.content.file?.clientOriginalName
         if let duration = message.content.file?.metadata?.duration {
-            var seconds = duration / 1000
-            let hours = seconds / 3600
-            seconds -= hours * 3600
-            let minutes = seconds / 60
-            seconds -= minutes * 60
-            
-            if hours > 0 {
-                let m = NSString(format:"%.2d", minutes)
-                let s = NSString(format: "%.2d", seconds)
-                fileInfoLabel.text = "\(hours):\(m):\(s)"
-            } else {
-                let s = NSString(format: "%.2d", seconds)
-                fileInfoLabel.text = "\(minutes):\(s)"
-            }
+            fileInfoLabel.text = formatAudioDuration(millis: duration)
         } else {
             fileInfoLabel.text = " "
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatImageCell: UITableViewCell {
+class ChatImageCell: UITableViewCell, ChatCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var readStatus: UIImageView?
     @IBOutlet weak var timeLabel: UILabel!

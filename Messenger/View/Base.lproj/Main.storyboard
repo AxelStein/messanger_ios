@@ -176,6 +176,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaY-IS-baA" userLabel="contentView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="798"/>
                                 <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmr-4m-oHf" userLabel="audioPlayerContainer" customClass="AudioPlayerContainer" customModule="Messenger" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="sd9-4o-niZ"/>
+                                        </constraints>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6F3-aQ-CBC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -334,12 +341,15 @@
                                     <constraint firstItem="fiM-yy-dhs" firstAttribute="centerX" secondItem="xaL-yB-hZD" secondAttribute="centerX" id="8bJ-zi-KjT"/>
                                     <constraint firstItem="Tf5-15-WTd" firstAttribute="top" secondItem="6F3-aQ-CBC" secondAttribute="bottom" id="CfG-5H-ySj"/>
                                     <constraint firstAttribute="trailing" secondItem="6F3-aQ-CBC" secondAttribute="trailing" id="Kog-NC-ZZJ"/>
+                                    <constraint firstItem="cmr-4m-oHf" firstAttribute="leading" secondItem="JaY-IS-baA" secondAttribute="leading" id="M2B-hm-PHs"/>
+                                    <constraint firstAttribute="trailing" secondItem="cmr-4m-oHf" secondAttribute="trailing" id="PoD-aa-Wz3"/>
+                                    <constraint firstItem="cmr-4m-oHf" firstAttribute="top" secondItem="JaY-IS-baA" secondAttribute="top" id="SJR-sr-Leg"/>
                                     <constraint firstItem="6F3-aQ-CBC" firstAttribute="leading" secondItem="JaY-IS-baA" secondAttribute="leading" id="TDl-Da-vCU"/>
                                     <constraint firstItem="xaL-yB-hZD" firstAttribute="top" secondItem="fiM-yy-dhs" secondAttribute="bottom" constant="-8" id="VuP-o9-jdi"/>
                                     <constraint firstItem="Tf5-15-WTd" firstAttribute="leading" secondItem="JaY-IS-baA" secondAttribute="leading" id="X9q-T5-BwL"/>
                                     <constraint firstItem="Tf5-15-WTd" firstAttribute="top" secondItem="xaL-yB-hZD" secondAttribute="bottom" constant="16" id="ZE8-yB-5Zy"/>
-                                    <constraint firstItem="6F3-aQ-CBC" firstAttribute="top" secondItem="JaY-IS-baA" secondAttribute="top" id="eDN-Ve-DwP"/>
                                     <constraint firstAttribute="bottom" secondItem="Tf5-15-WTd" secondAttribute="bottom" id="lps-Mv-wgk"/>
+                                    <constraint firstItem="6F3-aQ-CBC" firstAttribute="top" secondItem="cmr-4m-oHf" secondAttribute="bottom" id="qjm-A9-9FG"/>
                                     <constraint firstAttribute="trailing" secondItem="Tf5-15-WTd" secondAttribute="trailing" id="xJf-0H-mVa"/>
                                 </constraints>
                             </view>
@@ -360,6 +370,8 @@
                     <navigationItem key="navigationItem" title="Saved Messages" id="e41-Rn-IA8"/>
                     <connections>
                         <outlet property="activityIndicator" destination="cfQ-Ut-gAD" id="ylO-R0-aSb"/>
+                        <outlet property="audioPlayerContainer" destination="cmr-4m-oHf" id="Y1u-pd-5dg"/>
+                        <outlet property="audioPlayerContainerHeight" destination="sd9-4o-niZ" id="neq-91-vuj"/>
                         <outlet property="contentView" destination="JaY-IS-baA" id="uDu-Zg-VPG"/>
                         <outlet property="fabScrollDown" destination="xaL-yB-hZD" id="Sck-lJ-ci4"/>
                         <outlet property="messageInputContainer" destination="Tf5-15-WTd" id="ECH-hf-SRK"/>

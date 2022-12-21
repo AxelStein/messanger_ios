@@ -69,6 +69,10 @@ struct Message: Codable {
         let text: String?
         let file: File?
         
+        enum MimeType {
+            case image, video, audio, text, file
+        }
+        
         struct File: Codable {
             let urlForDownload: String
             let mimeType: String
@@ -92,6 +96,19 @@ struct Message: Codable {
 }
 
 extension Message.Content {
+    var mimeType: MimeType {
+        guard let file = file else { return .text }
+        let mime = file.mimeType
+        if mime.starts(with: "image/") {
+            return .image
+        } else if mime.starts(with: "video/") {
+            return .video
+        } else if mime.starts(with: "audio/") {
+            return .audio
+        }
+        return .file
+    }
+    
     var isImageFile: Bool {
         guard let file = file else { return false }
         return file.mimeType.starts(with: "image/")

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatTextCell: UITableViewCell {
+class ChatTextCell: UITableViewCell, ChatCell {
     @IBOutlet weak var bubbleView: BubbleView!
     @IBOutlet weak var readStatus: UIImageView?
     @IBOutlet weak var messageLabel: UILabel!

@@ -120,3 +120,37 @@ extension UIColor {
         return nil
     }
 }
+
+func formatAudioDuration(seconds: Int) -> String {
+    var seconds = seconds
+    let hours = seconds / 3600
+    seconds -= hours * 3600
+    let minutes = seconds / 60
+    seconds -= minutes * 60
+    
+    if hours > 0 {
+        let m = NSString(format:"%.2d", minutes)
+        let s = NSString(format: "%.2d", seconds)
+        return "\(hours):\(m):\(s)"
+    } else {
+        let s = NSString(format: "%.2d", seconds)
+        return "\(minutes):\(s)"
+    }
+}
+
+func formatAudioDuration(millis: Int64) -> String {
+    var seconds = millis / 1000
+    let hours = seconds / 3600
+    seconds -= hours * 3600
+    let minutes = seconds / 60
+    seconds -= minutes * 60
+    
+    if hours > 0 {
+        let m = NSString(format:"%.2d", minutes)
+        let s = NSString(format: "%.2d", seconds)
+        return "\(hours):\(m):\(s)"
+    } else {
+        let s = NSString(format: "%.2d", seconds)
+        return "\(minutes):\(s)"
+    }
+}

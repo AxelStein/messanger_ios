@@ -19,13 +19,16 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var unreadCount: UILabel!
     @IBOutlet weak var sendMessageButton: UIImageView!
     @IBOutlet weak var messageInputContainerBottom: NSLayoutConstraint!
+    @IBOutlet weak var audioPlayerContainer: AudioPlayerContainer!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var audioPlayerContainerHeight: NSLayoutConstraint!
     
     var channel: Channel!
     var items = [Item]()
     var links = ChatHistory.Links(first: nil, last: nil, prev: nil, next: nil)
     private let api = ChatApi()
     private var audioPlayer: AVPlayer? = nil
+    private var isLoadingHistory = false
     
     override func viewDidLoad() {
         let title = UILabel()
@@ -66,7 +69,6 @@ class ChatViewController: UIViewController {
         tableView.re.dataSource = self
         tableView.re.delegate = self
         tableView.prefetchDataSource = self
-        // tableView.isPrefetchingEnabled = true
         tableView.contentInset = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
         
         let cellNames = [
@@ -106,31 +108,12 @@ class ChatViewController: UIViewController {
         sendMessageButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onSendMessageClick)))
         fabScrollDown.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scrollDown)))
         
+        audioPlayerContainer.heightConstraint = audioPlayerContainerHeight
         initChat()
     }
     
-    private func playAudio(path: String) {
-        guard let url = URL(string: path) else { return }
-        
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
-        
-        let token = UserDefaults.standard.string(forKey: DefaultsKeys.authToken) ?? ""
-        let headers = ["Authorization" : "Bearer \(token)"]
-        let asset = AVURLAsset(url: url, options: ["AVURLAssetHTTPHeaderFieldsKey" : headers])
-        let item = AVPlayerItem(asset: asset)
-        
-        if let audioPlayer = audioPlayer {
-            audioPlayer.replaceCurrentItem(with: item)
-        } else {
-            audioPlayer = AVPlayer(playerItem: item)
-        }
-        audioPlayer?.volume = 1
-        audioPlayer?.play()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
-        audioPlayer?.pause()
-        audioPlayer = nil
+        audioPlayerContainer.release()
     }
     
     private func registerTableViewCell(name: String) {
@@ -143,7 +126,6 @@ class ChatViewController: UIViewController {
         Task {
             do {
                 let chatInfo = try await api.initChat(partnerUid: channel.partner.uid)
-                // print(chatInfo)
                 if let channelId = chatInfo.data.channel?.id {
                     fetchHistory(channelId: channelId)
                 }
@@ -153,8 +135,6 @@ class ChatViewController: UIViewController {
             }
         }
     }
-    
-    private var isLoadingHistory = false
     
     func fetchHistory(channelId: Int64, cursor: String? = nil) {
         if isLoadingHistory {
@@ -364,8 +344,8 @@ extension ChatViewController: UITextViewDelegate {
 }
 
 extension ChatViewController: ChatAudioCellDelegate {
-    func onPlayClick(path: String) {
-        playAudio(path: path)
+    func onPlayClick(message: Message.Data) {
+        audioPlayerContainer.setCurrent(message: message)
     }
 }
 

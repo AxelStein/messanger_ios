@@ -9,7 +9,7 @@ import UIKit
 
 let byteCountFormatter = ByteCountFormatter()
 
-class ChatFileCell: UITableViewCell {
+class ChatFileCell: UITableViewCell, ChatCell {
     @IBOutlet weak var bubbleView: BubbleView!
     @IBOutlet weak var fileNameLabel: UILabel!
     @IBOutlet weak var fileInfoLabel: UILabel!

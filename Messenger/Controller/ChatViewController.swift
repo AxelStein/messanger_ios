@@ -9,7 +9,7 @@ import UIKit
 import ReverseExtension
 import AVFoundation
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController {    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var messageInputContainer: UIView!
     @IBOutlet weak var messageTextView: UITextView!
@@ -65,6 +65,8 @@ class ChatViewController: UIViewController {
         tableView.backgroundColor = UIColor.init(named: "chat_bg")
         tableView.re.dataSource = self
         tableView.re.delegate = self
+        tableView.prefetchDataSource = self
+        // tableView.isPrefetchingEnabled = true
         tableView.contentInset = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
         
         let cellNames = [
@@ -141,7 +143,7 @@ class ChatViewController: UIViewController {
         Task {
             do {
                 let chatInfo = try await api.initChat(partnerUid: channel.partner.uid)
-                print(chatInfo)
+                // print(chatInfo)
                 if let channelId = chatInfo.data.channel?.id {
                     fetchHistory(channelId: channelId)
                 }

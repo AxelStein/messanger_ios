@@ -44,11 +44,11 @@ class ChatImageTextCell: UITableViewCell {
         
         photo.roundCorners(corners: [.topLeft, .topRight], radius: 16)
         
-        if let path = message.content.file?.conversionsImages?["thumb_big"], let url = URL(string: path) {
-            imageLoader.load(url: url, id: message.id, width: width, height: height) { id, image in
-                if self.cellId == id {
-                    self.photo.image = image
-                }
+        if let thumbURL = message.content.thumbBigURL, imageLoader.contains(url: thumbURL, conversion: "thumb_big") {
+            self.loadImage(message, key: "thumb_big", width: width, height: height) {}
+        } else {
+            loadImage(message, key: "tiny_placeholder", width: width, height: height) {
+                self.loadImage(message, key: "thumb_big", width: width, height: height) {}
             }
         }
         
@@ -65,5 +65,22 @@ class ChatImageTextCell: UITableViewCell {
         readStatus?.image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
         
         bubbleView.setMessageGroup(.none)
+    }
+    
+    private func loadImage(
+        _ message: Message.Data,
+        key: String,
+        width: Int,
+        height: Int,
+        completion: @escaping () -> Void
+    ) {
+        guard let path = message.content.file?.conversionsImages?[key] else { return }
+        guard let url = URL(string: path) else { return }
+        imageLoader.load(url: url, id: cellId, conversion: key, width: width, height: height) { id, image in
+            if self.cellId == id {
+                self.photo.image = image
+                completion()
+            }
+        }
     }
 }

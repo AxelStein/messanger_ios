@@ -106,6 +106,20 @@ extension Message.Content {
         guard let file = file else { return false }
         return file.mimeType.starts(with: "audio/")
     }
+    
+    var tinyPlaceholderURL: URL? {
+        if let path = file?.conversionsImages?["tiny_placeholder"] {
+            return URL(string: path)
+        }
+        return nil
+    }
+    
+    var thumbBigURL: URL? {
+        if let path = file?.conversionsImages?["thumb_big"] {
+            return URL(string: path)
+        }
+        return nil
+    }
 }
 
 struct ChatHistory: Codable {

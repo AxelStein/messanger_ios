@@ -41,11 +41,11 @@ class ChatImageCell: UITableViewCell {
             self.photo.frame = frame
         }
         
-        if let path = message.content.file?.conversionsImages?["thumb_big"], let url = URL(string: path) {
-            imageLoader.load(url: url, id: message.id, width: width, height: height) { id, image in
-                if self.cellId == id {
-                    self.photo.image = image
-                }
+        if let thumbURL = message.content.thumbBigURL, imageLoader.contains(url: thumbURL, conversion: "thumb_big") {
+            self.loadImage(message, key: "thumb_big", width: width, height: height) {}
+        } else {
+            loadImage(message, key: "tiny_placeholder", width: width, height: height) {
+                self.loadImage(message, key: "thumb_big", width: width, height: height) {}
             }
         }
         
@@ -54,5 +54,22 @@ class ChatImageCell: UITableViewCell {
         // let icon = message.isPending ? "clock" : message.isRead ? "checkmark.circle.fill" : "checkmark.circle"
         let iconName = message.isRead ? "baseline_done_all_black_18pt" : "baseline_done_black_18pt"
         readStatus?.image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    private func loadImage(
+        _ message: Message.Data,
+        key: String,
+        width: Int,
+        height: Int,
+        completion: @escaping () -> Void
+    ) {
+        guard let path = message.content.file?.conversionsImages?[key] else { return }
+        guard let url = URL(string: path) else { return }
+        imageLoader.load(url: url, id: cellId, conversion: key, width: width, height: height) { id, image in
+            if self.cellId == id {
+                self.photo.image = image
+                completion()
+            }
+        }
     }
 }

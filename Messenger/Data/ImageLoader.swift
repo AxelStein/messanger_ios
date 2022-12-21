@@ -14,8 +14,14 @@ class ImageLoader {
     private let cache = NSCache<AnyObject, AnyObject>()
     private var tasks = [URL: URLSessionDataTask]()
     
-    func load(url: URL, id: Int64, width: Int = -1, height: Int = -1, completion: @escaping (Int64, UIImage?) -> Void) {
-        if let cached = cache.object(forKey: url as AnyObject) as? UIImage {
+    func contains(url: URL, conversion: String = "") -> Bool {
+        let key = url.path + conversion
+        return cache.object(forKey: key as AnyObject) != nil
+    }
+    
+    func load(url: URL, id: Int64, conversion: String = "", width: Int = -1, height: Int = -1, completion: @escaping (Int64, UIImage?) -> Void) {
+        let key = url.path + conversion
+        if let cached = cache.object(forKey: key as AnyObject) as? UIImage {
             tasks.removeValue(forKey: url)
             completion(id, cached)
             return
@@ -42,18 +48,21 @@ class ImageLoader {
             
             if width > 0 && height > 0 {
                 let resized = image.resized(to: CGSize(width: width, height: height))
-                self.cache.setObject(resized, forKey: url as AnyObject, cost: data.count)
+                self.cache.setObject(resized, forKey: key as AnyObject, cost: data.count)
                 DispatchQueue.main.async {
                     completion(id, resized)
                 }
             } else {
-                self.cache.setObject(image, forKey: url as AnyObject, cost: data.count)
+                self.cache.setObject(image, forKey: key as AnyObject, cost: data.count)
                 DispatchQueue.main.async {
                     completion(id, image)
                 }
             }
         }
         tasks[url] = task
+        if conversion == "tiny_placeholder" {
+            task.priority = URLSessionDataTask.highPriority
+        }
         task.resume()
     }
     

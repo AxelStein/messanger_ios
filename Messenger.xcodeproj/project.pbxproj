@@ -38,6 +38,7 @@
 		FAC1D8F6295326A400C5DDD4 /* ChatOwnAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */; };
 		FAC1D8F829532B0200C5DDD4 /* ChatPartnerAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */; };
 		FAC1D8FA29532B8F00C5DDD4 /* ChatAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */; };
+		FAC1D8FC2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */; };
 		FADF5F00293CB110002A89C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5EFF293CB110002A89C8 /* AppDelegate.swift */; };
 		FADF5F02293CB110002A89C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5F01293CB110002A89C8 /* SceneDelegate.swift */; };
 		FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5F05293CB110002A89C8 /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnAudioCell.xib; sourceTree = "<group>"; };
 		FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerAudioCell.xib; sourceTree = "<group>"; };
 		FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAudioCell.swift; sourceTree = "<group>"; };
+		FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+UITableViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
 		FADF5EFC293CB110002A89C8 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADF5EFF293CB110002A89C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADF5F01293CB110002A89C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				FA8CFFC7294A843F005ADF69 /* ChatViewController.swift */,
 				FAA11012294DECDB00D8DA7B /* ChatViewController+UITableViewDelegate.swift */,
+				FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */,
 				FA8CFFC5294A830D005ADF69 /* ChannelsViewController.swift */,
 				FA31C7F729503A6F00327D05 /* LoginViewController.swift */,
 			);
@@ -355,6 +358,7 @@
 				FA71E75C29511D9200C891A3 /* ChatImageTextCell.swift in Sources */,
 				FA3BED002951FB6F00AA7097 /* ChatFileCell.swift in Sources */,
 				FA8CFFC4294A80B1005ADF69 /* ChannelCell.swift in Sources */,
+				FAC1D8FC2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift in Sources */,
 				FA31C8032950871300327D05 /* ChannelApi.swift in Sources */,
 				FA31C7FD29503CB600327D05 /* ResponseAuth.swift in Sources */,
 				FAA1100B294DEB3800D8DA7B /* Ext.swift in Sources */,

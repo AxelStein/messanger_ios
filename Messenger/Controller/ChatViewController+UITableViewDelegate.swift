@@ -25,20 +25,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
                 fetchHistory(channelId: channel.id, cursor: nextLink)
             }
         }
-        /*
-        if indexPath.item == 0 {
-            if let nextLink = links.next {
-                fetchHistory(channelId: channel.id, cursor: nextLink)
-            }
-        }
-        */
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let item = items[indexPath.item] as? MessageItem {
             let message = item.data
             if message.content.isImageFile || message.content.isVideoFile {
-                if let path = message.content.file?.conversionsImages?["thumb_big"], let url = URL(string: path) {
+                if let url = message.content.thumbBigURL {
                     imageLoader.cancel(for: url)
                 }
             }

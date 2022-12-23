@@ -82,6 +82,7 @@ class ChatViewController: UIViewController {
             "ChatPartnerImageTextCell",
             "ChatOwnAudioCell",
             "ChatPartnerAudioCell",
+            "ChatOwnVideoCell",
         ]
         cellNames.forEach {
             registerTableViewCell(name: $0)

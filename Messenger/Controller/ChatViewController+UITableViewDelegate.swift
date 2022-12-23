@@ -20,6 +20,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
         
+        if let cell = cell as? ChatVideoCell {
+            cell.set(visible: true)
+        }
+        
         if indexPath.item == items.count - 30 {
             if let nextLink = links.next {
                 fetchHistory(channelId: channel.id, cursor: nextLink)
@@ -27,10 +31,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let item = items[indexPath.item] as? MessageItem {
             let message = item.data
-            if message.content.isImageFile || message.content.isVideoFile {
+            if let cell = cell as? ChatVideoCell {
+                cell.set(visible: false)
+            }
+            if message.content.mimeType == .image {
                 if let url = message.content.thumbBigURL {
                     imageLoader.cancel(for: url)
                 }
@@ -46,7 +53,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             
             var id = ""
             switch message.content.mimeType {
-                case .image, .video:
+                case .video:
+                    id = "ChatOwnVideoCell"
+                    
+                case .image:
                     let text = message.content.text
                     if let text = text, !text.isEmpty {
                         id = message.isOwn ? "ChatOwnImageTextCell" : "ChatPartnerImageTextCell"

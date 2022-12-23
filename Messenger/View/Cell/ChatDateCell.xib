@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatDateCell" id="Bvn-8o-2kR" customClass="ChatDateCell" customModule="Messenger" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bvn-8o-2kR" id="2TW-rD-s9T">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqD-Yp-b02">
+                        <rect key="frame" x="146" y="10" width="122" height="24.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3p-uN-4qH">
+                                <rect key="frame" x="8" y="2" width="106" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="chat_date_header"/>
+                        <constraints>
+                            <constraint firstItem="N3p-uN-4qH" firstAttribute="leading" secondItem="mqD-Yp-b02" secondAttribute="leading" constant="8" id="2Dy-7N-IJb"/>
+                            <constraint firstAttribute="trailing" secondItem="N3p-uN-4qH" secondAttribute="trailing" constant="8" id="9tm-5h-oes"/>
+                            <constraint firstAttribute="bottom" secondItem="N3p-uN-4qH" secondAttribute="bottom" constant="2" id="Csg-og-wjy"/>
+                            <constraint firstItem="N3p-uN-4qH" firstAttribute="top" secondItem="mqD-Yp-b02" secondAttribute="top" constant="2" id="UHV-wy-xtP"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mqD-Yp-b02" firstAttribute="centerY" secondItem="2TW-rD-s9T" secondAttribute="centerY" id="fre-DC-dnF"/>
+                    <constraint firstItem="mqD-Yp-b02" firstAttribute="centerX" secondItem="2TW-rD-s9T" secondAttribute="centerX" id="tmn-hg-X2n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="N3p-uN-4qH" id="Q18-7k-mNc"/>
+            </connections>
+            <point key="canvasLocation" x="136" y="92"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="chat_date_header">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

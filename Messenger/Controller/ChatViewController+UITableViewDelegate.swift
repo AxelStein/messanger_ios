@@ -37,11 +37,13 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             if let cell = cell as? ChatVideoCell {
                 cell.set(visible: false)
             }
+            /*
             if message.content.mimeType == .image {
                 if let url = message.content.thumbBigURL {
                     imageLoader.cancel(for: url)
                 }
             }
+            */
         }
     }
     

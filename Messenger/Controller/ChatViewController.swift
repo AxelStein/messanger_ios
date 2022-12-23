@@ -47,23 +47,24 @@ class ChatViewController: UIViewController {
         stack.alignment = .center
         stack.sizeToFit()
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        navigationItem.scrollEdgeAppearance = appearance
+        /*
+        navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance(barAppearance: UIBarAppearance(idiom: .phone))
+        */
+        // navigationController?.navigationBar.isTranslucent = true
         navigationItem.titleView = stack
-
-        let size = CGFloat(36)
-        let img = UIImage(named: "img")?.resized(to: CGSize(width: size, height: size))
-        let avatarView = UIImageView(image: img)
-        avatarView.layer.cornerRadius = size / 2
-        avatarView.backgroundColor = .systemBlue
-        avatarView.clipsToBounds = true
-        avatarView.isUserInteractionEnabled = true
         
         if let url = URL(string: channel.partner.avatarUrl) {
             imageLoader.load(url: url, id: channel.id) { id, image in
-                avatarView.image = image?.resized(to: CGSize(width: size, height: size))
+                let size = CGFloat(36)
+                let resized = image?.resizedCircle(to: CGSize(width: size, height: size)).withRenderingMode(.alwaysOriginal)
+                let item = UIBarButtonItem(image: resized, style: .plain, target: nil, action: nil)
+                item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -8)
+                self.navigationItem.rightBarButtonItem = item
             }
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: avatarView)
         
         tableView.backgroundColor = UIColor.init(named: "chat_bg")
         tableView.re.dataSource = self
@@ -83,6 +84,7 @@ class ChatViewController: UIViewController {
             "ChatOwnAudioCell",
             "ChatPartnerAudioCell",
             "ChatOwnVideoCell",
+            "ChatDateCell",
         ]
         cellNames.forEach {
             registerTableViewCell(name: $0)
@@ -114,6 +116,7 @@ class ChatViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         audioPlayerContainer.release()
     }
     

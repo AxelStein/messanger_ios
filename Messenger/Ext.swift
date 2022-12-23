@@ -25,7 +25,14 @@ extension String {
 
 extension UIImage {
     func resized(to size: CGSize) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { _ in
+        return UIGraphicsImageRenderer(size: size).image { it in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
+    
+    func resizedCircle(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { it in
+            UIBezierPath(ovalIn: CGRect(origin: .zero, size: size)).addClip()
             draw(in: CGRect(origin: .zero, size: size))
         }
     }

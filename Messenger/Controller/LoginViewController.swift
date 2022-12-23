@@ -21,9 +21,8 @@ class LoginViewController: UIViewController {
     }
     
     private func openChannels() {
-        if let vc = storyboard?.instantiateViewController(identifier: "ChannelsViewController") {
-            navigationController?.pushViewController(vc, animated: false)
-            // navigationController?.replaceTopViewController(with: vc, animated: false)
+        if let vc = storyboard?.instantiateViewController(identifier: "NavigationViewController") {
+            UIApplication.shared.windows.first!.rootViewController = vc
         }
     }
     

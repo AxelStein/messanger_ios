@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Api {
     
@@ -19,12 +20,16 @@ class Api {
         return UserDefaults.standard.string(forKey: DefaultsKeys.authToken)
     }
     
-    func action(_ request: URLRequest) async throws {
-        try await URLSession.shared.data(for: request)
-    }
-    
     func fetch<T: Codable>(_ request: URLRequest) async throws -> T {
         let (data, response) = try await URLSession.shared.data(for: request)
+        if !response.isSuccessful {
+            // show login page
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                UIApplication.shared.windows.first!.rootViewController = vc
+            }
+        }
         // print(data.asString)
         return try decoder.decode(T.self, from: data)
     }

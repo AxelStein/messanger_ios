@@ -27,7 +27,6 @@ class VideoPlayer {
     }
     
     deinit {
-        print("VideoPlayer deinit")
         player.replaceCurrentItem(with: nil)
         layer.removeFromSuperlayer()
     }
@@ -43,6 +42,7 @@ class ChatVideoCell: UITableViewCell, ChatCell {
     
     private var message: Message.Data? = nil
     private var videoPlayer: VideoPlayer? = nil
+    private var timeObserver: Any? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -89,6 +89,11 @@ class ChatVideoCell: UITableViewCell, ChatCell {
         }
         
         timeLabel.text = message.time
+        if let duration = message.content.file?.metadata?.duration {
+            playTimeLabel.text = formatAudioDuration(millis: duration)
+        } else {
+            playTimeLabel.text = " "
+        }
         
         let iconName = message.isRead ? "baseline_done_all_black_18pt" : "baseline_done_black_18pt"
         readStatusView?.image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
@@ -125,6 +130,9 @@ class ChatVideoCell: UITableViewCell, ChatCell {
         if !visible {
             self.playView.isHidden = false
             if videoPlayer != nil {
+                if let timeObserver = timeObserver {
+                    videoPlayer?.player.removeTimeObserver(timeObserver)
+                }
                 videoPlayer = nil
             }
         }
@@ -151,6 +159,13 @@ class ChatVideoCell: UITableViewCell, ChatCell {
         self.videoView.layer.addSublayer(vp.layer)
         vp.player.play()
         videoPlayer = vp
+        
+        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+
+        timeObserver = vp.player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+            let current = formatAudioDuration(seconds: Int(time.seconds))
+            self?.playTimeLabel.text = current
+        }
     }
     
     deinit {

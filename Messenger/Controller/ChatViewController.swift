@@ -37,9 +37,14 @@ class ChatViewController: UIViewController {
         title.sizeToFit()
         
         let subtitle = UILabel()
-        subtitle.text = "last seen \(formatPartnerLastSeenDate(dateStr: channel.partner.dtaLastSeen))"
+        if channel.partner.isOnline {
+            subtitle.text = "online"
+            subtitle.textColor = .systemBlue
+        } else {
+            subtitle.text = "last seen \(formatPartnerLastSeenDate(dateStr: channel.partner.dtaLastSeen))"
+            subtitle.textColor = .secondaryLabel
+        }
         subtitle.font = .systemFont(ofSize: 14, weight: .regular)
-        subtitle.textColor = .secondaryLabel
         subtitle.sizeToFit()
         
         let stack = UIStackView(arrangedSubviews: [title, subtitle])

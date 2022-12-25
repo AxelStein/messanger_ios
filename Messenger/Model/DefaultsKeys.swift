@@ -12,4 +12,6 @@ struct DefaultsKeys {
     static let userName = "userName"
     static let userAvatar = "userAvatar"
     static let authToken = "authToken"
+    static let email = "email"
+    static let password = "password"
 }

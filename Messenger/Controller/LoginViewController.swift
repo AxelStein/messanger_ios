@@ -10,25 +10,24 @@ import UIKit
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var contentView: UIStackView!
     
     override func viewDidLoad() {
-        if let token = UserDefaults.standard.string(forKey: DefaultsKeys.authToken) {
-            print("token=\(token)")
-            if !token.isEmpty {
-                openChannels()
-            }
-        }
-    }
-    
-    private func openChannels() {
-        if let vc = storyboard?.instantiateViewController(identifier: "NavigationViewController") {
-            UIApplication.shared.windows.first!.rootViewController = vc
+        if let email = UserDefaults.standard.string(forKey: DefaultsKeys.email),
+            let password = UserDefaults.standard.string(forKey: DefaultsKeys.password) {
+            
+            contentView.isHidden = true
+            performLogin(email: email, password: password)
         }
     }
     
     @IBAction func onLogin(_ sender: Any) {
         guard let email = emailField.text else { return }
         guard let password = passwordField.text else { return }
+        performLogin(email: email, password: password)
+    }
+    
+    func performLogin(email: String, password: String) {
         Task {
             let api = LoginApi()
             do {
@@ -46,12 +45,23 @@ class LoginViewController: UIViewController {
                     UserDefaults.standard.setValue(avatar, forKey: DefaultsKeys.userAvatar)
                 }
                 if auth.data.code != nil {
+                    UserDefaults.standard.setValue(email, forKey: DefaultsKeys.email)
+                    UserDefaults.standard.setValue(password, forKey: DefaultsKeys.password)
                     openChannels()
+                } else {
+                    contentView.isHidden = false
                 }
                 print(auth)
             } catch {
                 print(error)
+                contentView.isHidden = false
             }
+        }
+    }
+    
+    private func openChannels() {
+        if let vc = storyboard?.instantiateViewController(identifier: "NavigationViewController") {
+            UIApplication.shared.windows.first!.rootViewController = vc
         }
     }
 }

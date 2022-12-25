@@ -50,6 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TB2-rg-0NW"/>
                     <connections>
+                        <outlet property="contentView" destination="dOP-LJ-ft3" id="s6f-ot-E70"/>
                         <outlet property="emailField" destination="9V5-95-hpN" id="hCX-NZ-lst"/>
                         <outlet property="passwordField" destination="Tsb-5R-EDF" id="u5H-HT-Ibh"/>
                     </connections>

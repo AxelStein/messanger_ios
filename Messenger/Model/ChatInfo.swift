@@ -30,6 +30,12 @@ struct Channel: Codable {
     let cntUnread: Int
     let partner: Partner
     let messageLast: Message.Data?
+    var created: Date = Date()
+    var time = ""
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, cntUnread, partner, messageLast
+    }
 }
 
 struct ResponseChannels: Codable {
@@ -55,6 +61,11 @@ struct Message: Codable {
         
         private enum CodingKeys: String, CodingKey {
             case id, idUserAuthor, idChannel, dtaCreate, isEdited, isRead, isOwn, content
+        }
+        
+        mutating func convertTime() {
+            created = dtaCreate.asDate ?? Date()
+            time = created.timeText
         }
     }
     

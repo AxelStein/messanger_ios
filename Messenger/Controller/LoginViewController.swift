@@ -11,9 +11,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var contentView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
-        if let token = UserDefaults.standard.string(forKey: DefaultsKeys.authToken) {
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle(" ", for: .disabled)
+        
+        if UserDefaults.standard.string(forKey: DefaultsKeys.authToken) != nil {
             openChannels()
         }
     }
@@ -21,6 +26,15 @@ class LoginViewController: UIViewController {
     @IBAction func onLogin(_ sender: Any) {
         guard let email = emailField.text else { return }
         guard let password = passwordField.text else { return }
+        
+        if email.isEmpty { return }
+        if password.isEmpty { return }
+        
+        emailField.endEditing(true)
+        passwordField.endEditing(true)
+        
+        setControlsState(enabled: false)
+        
         performLogin(email: email, password: password)
     }
     
@@ -45,14 +59,24 @@ class LoginViewController: UIViewController {
                     UserDefaults.standard.setValue(email, forKey: DefaultsKeys.email)
                     UserDefaults.standard.setValue(password, forKey: DefaultsKeys.password)
                     openChannels()
-                } else {
-                    contentView.isHidden = false
                 }
-                print(auth)
+                
+                setControlsState(enabled: true)
             } catch {
                 print(error)
-                contentView.isHidden = false
+                setControlsState(enabled: true)
             }
+        }
+    }
+    
+    private func setControlsState(enabled: Bool) {
+        self.emailField.isEnabled = enabled
+        self.passwordField.isEnabled = enabled
+        self.loginButton.isEnabled = enabled
+        if enabled {
+            self.activityIndicator.stopAnimating()
+        } else {
+            self.activityIndicator.startAnimating()
         }
     }
     

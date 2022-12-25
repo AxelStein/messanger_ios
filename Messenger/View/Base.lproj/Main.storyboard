@@ -21,13 +21,13 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9V5-95-hpN">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tsb-5R-EDF">
                                         <rect key="frame" x="0.0" y="42" width="350" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BV-sK-MIB">
                                         <rect key="frame" x="0.0" y="84" width="350" height="31"/>
@@ -39,19 +39,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zox-if-xIo">
+                                <rect key="frame" x="197" y="479.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="csC-O3-BTG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zox-if-xIo" firstAttribute="bottom" secondItem="dOP-LJ-ft3" secondAttribute="bottom" constant="-6" id="4ew-ws-SWi"/>
                             <constraint firstItem="dOP-LJ-ft3" firstAttribute="centerY" secondItem="X8j-8v-r32" secondAttribute="centerY" id="9rH-cW-4mo"/>
                             <constraint firstItem="csC-O3-BTG" firstAttribute="trailing" secondItem="dOP-LJ-ft3" secondAttribute="trailing" constant="32" id="OP5-Bd-haL"/>
+                            <constraint firstItem="zox-if-xIo" firstAttribute="centerX" secondItem="dOP-LJ-ft3" secondAttribute="centerX" id="S2J-Gg-hkA"/>
                             <constraint firstItem="dOP-LJ-ft3" firstAttribute="leading" secondItem="csC-O3-BTG" secondAttribute="leading" constant="32" id="WIp-Bo-xR3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TB2-rg-0NW"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="zox-if-xIo" id="9WJ-Ee-w2v"/>
                         <outlet property="contentView" destination="dOP-LJ-ft3" id="s6f-ot-E70"/>
                         <outlet property="emailField" destination="9V5-95-hpN" id="hCX-NZ-lst"/>
+                        <outlet property="loginButton" destination="6BV-sK-MIB" id="s8p-gT-i8h"/>
                         <outlet property="passwordField" destination="Tsb-5R-EDF" id="u5H-HT-Ibh"/>
                     </connections>
                 </viewController>

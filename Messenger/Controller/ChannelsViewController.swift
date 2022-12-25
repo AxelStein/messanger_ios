@@ -12,6 +12,8 @@ class ChannelsViewController: UITableViewController {
     private var channels = [Channel]()
     
     override func viewDidLoad() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        
         Task {
             do {
                 channels = try await api.getChannels()

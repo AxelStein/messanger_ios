@@ -10,11 +10,11 @@ import UIKit
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset
-        let hideFab = offset.y <= 0
-        fabScrollDown.isHidden = hideFab
-        // print("offset=\(offset.y)")
-        // unreadCount.isHidden = hideFab
+        if scrollView is UITableView {
+            let offset = scrollView.contentOffset
+            let hideFab = offset.y <= 0
+            fabScrollDown.isHidden = hideFab
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

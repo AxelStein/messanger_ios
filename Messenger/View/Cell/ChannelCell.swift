@@ -12,7 +12,7 @@ class ChannelCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var readStatus: UIImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageThumb: UIImageView!
     
     var channelId: Int64 = 0
@@ -21,7 +21,28 @@ class ChannelCell: UITableViewCell {
         channelId = item.id
         
         name.text = item.partner.fullname
-        message.text = item.messageLast?.content.text
+        
+        var messageText = ""
+        if let message = item.messageLast {
+            switch message.content.mimeType {
+                case .image:
+                    messageText = "Image"
+                    
+                case .video:
+                    messageText = "Video"
+                    
+                case .audio:
+                    messageText = "Audio"
+                    
+                case .text:
+                    messageText = message.content.text ?? ""
+                    
+                case .file:
+                    messageText = message.content.file?.clientOriginalName ?? ""
+            }
+        }
+        messageLabel.text = messageText
+        
         time.text = item.time
         
         let isOwn = item.messageLast?.isOwn ?? false
@@ -39,6 +60,9 @@ class ChannelCell: UITableViewCell {
                     self.avatar.image = image
                 }
             }
+        } else {
+            let partnerName = item.partner.fullname.prefix(2)
+            avatar.image = imageWith(name: partnerName.uppercased())
         }
     }
 }

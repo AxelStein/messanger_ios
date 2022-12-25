@@ -23,6 +23,23 @@ extension String {
     }
 }
 
+func imageWith(name: String?) -> UIImage? {
+    let frame = CGRect(x: 0, y: 0, width: 56, height: 56)
+    let nameLabel = UILabel(frame: frame)
+    nameLabel.textAlignment = .center
+    nameLabel.backgroundColor = .systemBlue
+    nameLabel.textColor = .white
+    nameLabel.font = .systemFont(ofSize: 24)
+    nameLabel.text = name
+    UIGraphicsBeginImageContext(frame.size)
+    if let currentContext = UIGraphicsGetCurrentContext() {
+        nameLabel.layer.render(in: currentContext)
+        let nameImage = UIGraphicsGetImageFromCurrentImageContext()
+            return nameImage
+        }
+    return nil
+}
+
 extension UIImage {
     func resized(to size: CGSize) -> UIImage {
         return UIGraphicsImageRenderer(size: size).image { it in

@@ -22,10 +22,9 @@ class Api {
     
     func fetch<T: Codable>(_ request: URLRequest) async throws -> T {
         let (data, response) = try await URLSession.shared.data(for: request)
-        if !response.isSuccessful {
-            
+        if response.code == 401 {
+            UserDefaults.standard.set(nil, forKey: DefaultsKeys.authToken)
         }
-        // print(data.asString)
         return try decoder.decode(T.self, from: data)
     }
     

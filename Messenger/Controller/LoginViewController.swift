@@ -13,11 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var contentView: UIStackView!
     
     override func viewDidLoad() {
-        if let email = UserDefaults.standard.string(forKey: DefaultsKeys.email),
-            let password = UserDefaults.standard.string(forKey: DefaultsKeys.password) {
-            
-            contentView.isHidden = true
-            performLogin(email: email, password: password)
+        if let token = UserDefaults.standard.string(forKey: DefaultsKeys.authToken) {
+            openChannels()
         }
     }
     

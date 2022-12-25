@@ -63,12 +63,11 @@ class ChatViewController: UIViewController {
         
         if let url = URL(string: channel.partner.avatarUrl) {
             imageLoader.load(url: url, id: channel.id) { id, image in
-                let size = CGFloat(36)
-                let resized = image?.resizedCircle(to: CGSize(width: size, height: size)).withRenderingMode(.alwaysOriginal)
-                let item = UIBarButtonItem(image: resized, style: .plain, target: nil, action: nil)
-                item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -8)
-                self.navigationItem.rightBarButtonItem = item
+                self.setAvatartImage(image)
             }
+        } else {
+            let partnerName = channel.partner.fullname.prefix(2)
+            self.setAvatartImage(imageWith(name: partnerName.uppercased()))
         }
         
         tableView.backgroundColor = UIColor.init(named: "chat_bg")
@@ -118,6 +117,14 @@ class ChatViewController: UIViewController {
         
         audioPlayerContainer.heightConstraint = audioPlayerContainerHeight
         initChat()
+    }
+    
+    private func setAvatartImage(_ image: UIImage?) {
+        let size = CGFloat(36)
+        let resized = image?.resizedCircle(to: CGSize(width: size, height: size)).withRenderingMode(.alwaysOriginal)
+        let item = UIBarButtonItem(image: resized, style: .plain, target: nil, action: nil)
+        item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -8)
+        self.navigationItem.rightBarButtonItem = item
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -23,8 +23,8 @@ extension String {
     }
 }
 
-func imageWith(name: String?) -> UIImage? {
-    let frame = CGRect(x: 0, y: 0, width: 56, height: 56)
+func imageWith(name: String?, size: CGSize) -> UIImage? {
+    let frame = CGRect(origin: .zero, size: size)
     let nameLabel = UILabel(frame: frame)
     nameLabel.textAlignment = .center
     nameLabel.backgroundColor = .systemBlue
@@ -67,7 +67,7 @@ extension UIView {
 extension Date {
     var monthDayText: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM d"
+        formatter.dateFormat = "d MMMM"
         return formatter.string(from: self)
     }
     
@@ -164,17 +164,24 @@ func formatAudioDuration(seconds: Int) -> String {
 
 func formatAudioDuration(millis: Int64) -> String {
     var seconds = millis / 1000
-    let hours = seconds / 3600
-    seconds -= hours * 3600
-    let minutes = seconds / 60
-    seconds -= minutes * 60
-    
-    if hours > 0 {
-        let m = NSString(format:"%.2d", minutes)
-        let s = NSString(format: "%.2d", seconds)
-        return "\(hours):\(m):\(s)"
-    } else {
-        let s = NSString(format: "%.2d", seconds)
-        return "\(minutes):\(s)"
+    return formatAudioDuration(seconds: Int(seconds))
+}
+
+func constrainValue(value: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
+    if value > max {
+        return max
     }
+    if value < min {
+        return min
+    }
+    return value
+}
+
+func convertRange(oldMin: CGFloat, oldMax: CGFloat, newMin: CGFloat, newMax: CGFloat, oldValue: CGFloat) -> CGFloat {
+    let oldRange = oldMax - oldMin
+    let newRange = newMax - newMin
+    if newRange == 0 || oldRange == 0 {
+        return 0
+    }
+    return (((oldValue - oldMin) * newRange) / oldRange) + newMin
 }

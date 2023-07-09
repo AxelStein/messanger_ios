@@ -18,7 +18,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+        // cell.backgroundColor = UIColor.clear
         
         if let cell = cell as? ChatVideoCell {
             cell.set(visible: true)
@@ -53,6 +53,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         if let item = item as? MessageItem {
             let message = item.data
             
+            /*
             var id = ""
             switch message.content.mimeType {
                 case .video:
@@ -75,13 +76,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
                 case .file:
                     id = message.isOwn ? "ChatOwnFileCell" : "ChatPartnerFileCell"
             }
+            */
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+            /*
             if let cell = cell as? ChatAudioCell {
                 cell.delegate = self
             }
-            if let cell = cell as? ChatCell {
-                cell.setMessage(message)
+            */
+            if let cell = cell as? MessageCell {
+                cell.setMessage(item.data)
             }
             return cell
         }

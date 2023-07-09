@@ -62,7 +62,7 @@ class ChannelCell: UITableViewCell {
             }
         } else {
             let partnerName = item.partner.fullname.prefix(2)
-            avatar.image = imageWith(name: partnerName.uppercased())
+            avatar.image = imageWith(name: partnerName.uppercased(), size: CGSize(width: 72, height: 72))
         }
     }
 }

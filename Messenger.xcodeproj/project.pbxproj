@@ -23,6 +23,8 @@
 		FA6F70A32953B520008366F5 /* AudioPlayerContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6F70A22953B520008366F5 /* AudioPlayerContainer.xib */; };
 		FA6F70A52953B74F008366F5 /* AudioPlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F70A42953B74F008366F5 /* AudioPlayerContainer.swift */; };
 		FA71E75C29511D9200C891A3 /* ChatImageTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */; };
+		FA8760512960A02F005FBBB4 /* ChatItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8760502960A02F005FBBB4 /* ChatItemView.swift */; };
+		FA8760532960A247005FBBB4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8760522960A247005FBBB4 /* TestViewController.swift */; };
 		FA8CFFC4294A80B1005ADF69 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CFFC3294A80B1005ADF69 /* ChannelCell.swift */; };
 		FA8CFFC6294A830D005ADF69 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CFFC5294A830D005ADF69 /* ChannelsViewController.swift */; };
 		FA8CFFC8294A843F005ADF69 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CFFC7294A843F005ADF69 /* ChatViewController.swift */; };
@@ -42,6 +44,10 @@
 		FAC1D8F829532B0200C5DDD4 /* ChatPartnerAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */; };
 		FAC1D8FA29532B8F00C5DDD4 /* ChatAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */; };
 		FAC1D8FC2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */; };
+		FAC7CBE62A5ABDEE000D7EF0 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7CBE52A5ABDEE000D7EF0 /* MessageView.swift */; };
+		FAC7CBEB2A5ABEFF000D7EF0 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7CBE92A5ABEFF000D7EF0 /* MessageCell.swift */; };
+		FAC7CBEC2A5ABEFF000D7EF0 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC7CBEA2A5ABEFF000D7EF0 /* MessageCell.xib */; };
+		FAC7CBEE2A5AD4BF000D7EF0 /* ImageScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7CBED2A5AD4BF000D7EF0 /* ImageScaler.swift */; };
 		FACD6CB4295471F7002B3458 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD6CB3295471F7002B3458 /* ChatCell.swift */; };
 		FACD6CB629547757002B3458 /* ChatOwnVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACD6CB529547757002B3458 /* ChatOwnVideoCell.xib */; };
 		FACD6CB82954795C002B3458 /* ChatVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD6CB72954795C002B3458 /* ChatVideoCell.swift */; };
@@ -72,6 +78,8 @@
 		FA6F70A22953B520008366F5 /* AudioPlayerContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerContainer.xib; sourceTree = "<group>"; };
 		FA6F70A42953B74F008366F5 /* AudioPlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerContainer.swift; sourceTree = "<group>"; };
 		FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageTextCell.swift; sourceTree = "<group>"; };
+		FA8760502960A02F005FBBB4 /* ChatItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemView.swift; sourceTree = "<group>"; };
+		FA8760522960A247005FBBB4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FA8CFFC3294A80B1005ADF69 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		FA8CFFC5294A830D005ADF69 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		FA8CFFC7294A843F005ADF69 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 		FAC1D8F729532B0200C5DDD4 /* ChatPartnerAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPartnerAudioCell.xib; sourceTree = "<group>"; };
 		FAC1D8F929532B8F00C5DDD4 /* ChatAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAudioCell.swift; sourceTree = "<group>"; };
 		FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+UITableViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
+		FAC7CBE52A5ABDEE000D7EF0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		FAC7CBE92A5ABEFF000D7EF0 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		FAC7CBEA2A5ABEFF000D7EF0 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		FAC7CBED2A5AD4BF000D7EF0 /* ImageScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaler.swift; sourceTree = "<group>"; };
 		FACD6CB3295471F7002B3458 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		FACD6CB529547757002B3458 /* ChatOwnVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatOwnVideoCell.xib; sourceTree = "<group>"; };
 		FACD6CB72954795C002B3458 /* ChatVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVideoCell.swift; sourceTree = "<group>"; };
@@ -153,6 +165,7 @@
 				FAC1D8FB2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift */,
 				FA8CFFC5294A830D005ADF69 /* ChannelsViewController.swift */,
 				FA31C7F729503A6F00327D05 /* LoginViewController.swift */,
+				FA8760522960A247005FBBB4 /* TestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,7 +203,10 @@
 				FA1A16852950F63600699E76 /* ChatImageCell.swift */,
 				FA71E75B29511D9200C891A3 /* ChatImageTextCell.swift */,
 				FA3BECFE2951FB6F00AA7097 /* ChatFileCell.swift */,
+				FAC7CBE52A5ABDEE000D7EF0 /* MessageView.swift */,
 				FACD6CB72954795C002B3458 /* ChatVideoCell.swift */,
+				FAC7CBE92A5ABEFF000D7EF0 /* MessageCell.swift */,
+				FAC7CBEA2A5ABEFF000D7EF0 /* MessageCell.xib */,
 				FA4F50B029566D7D00BC6EA3 /* ChatDateCell.xib */,
 				FACD6CB529547757002B3458 /* ChatOwnVideoCell.xib */,
 				FAC1D8F5295326A400C5DDD4 /* ChatOwnAudioCell.xib */,
@@ -204,6 +220,7 @@
 				FAC1D8F1295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib */,
 				FAC1D8E929530E3300C5DDD4 /* ChatPartnerTextCell.xib */,
 				FACD6CB3295471F7002B3458 /* ChatCell.swift */,
+				FA8760502960A02F005FBBB4 /* ChatItemView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -236,6 +253,7 @@
 				FADF5EFF293CB110002A89C8 /* AppDelegate.swift */,
 				FADF5F01293CB110002A89C8 /* SceneDelegate.swift */,
 				FAA1100A294DEB3800D8DA7B /* Ext.swift */,
+				FAC7CBED2A5AD4BF000D7EF0 /* ImageScaler.swift */,
 				FADF5F08293CB113002A89C8 /* Assets.xcassets */,
 				FADF5F0D293CB113002A89C8 /* Info.plist */,
 			);
@@ -314,6 +332,7 @@
 				FAC1D8E82952E8F800C5DDD4 /* ChatOwnTextCell.xib in Resources */,
 				FADF5F07293CB110002A89C8 /* Main.storyboard in Resources */,
 				FACD6CB629547757002B3458 /* ChatOwnVideoCell.xib in Resources */,
+				FAC7CBEC2A5ABEFF000D7EF0 /* MessageCell.xib in Resources */,
 				FAC1D8E6295271BA00C5DDD4 /* ChatPartnerFileCell.xib in Resources */,
 				FAC1D8F2295317CE00C5DDD4 /* ChatPartnerImageTextCell.xib in Resources */,
 				FAC1D8F6295326A400C5DDD4 /* ChatOwnAudioCell.xib in Resources */,
@@ -377,7 +396,9 @@
 				FA31C7F829503A6F00327D05 /* LoginViewController.swift in Sources */,
 				FA57B061294660FA008A8B4A /* ChatTextCell.swift in Sources */,
 				FA71E75C29511D9200C891A3 /* ChatImageTextCell.swift in Sources */,
+				FAC7CBEB2A5ABEFF000D7EF0 /* MessageCell.swift in Sources */,
 				FA3BED002951FB6F00AA7097 /* ChatFileCell.swift in Sources */,
+				FAC7CBEE2A5AD4BF000D7EF0 /* ImageScaler.swift in Sources */,
 				FA8CFFC4294A80B1005ADF69 /* ChannelCell.swift in Sources */,
 				FACD6CB82954795C002B3458 /* ChatVideoCell.swift in Sources */,
 				FAC1D8FC2953482400C5DDD4 /* ChatViewController+UITableViewDataSourcePrefetching.swift in Sources */,
@@ -394,9 +415,12 @@
 				FA6F70A52953B74F008366F5 /* AudioPlayerContainer.swift in Sources */,
 				FA31C7FA29503B4600327D05 /* LoginApi.swift in Sources */,
 				FA1A16862950F63600699E76 /* ChatImageCell.swift in Sources */,
+				FAC7CBE62A5ABDEE000D7EF0 /* MessageView.swift in Sources */,
 				FACD6CB4295471F7002B3458 /* ChatCell.swift in Sources */,
+				FA8760532960A247005FBBB4 /* TestViewController.swift in Sources */,
 				FA8CFFC8294A843F005ADF69 /* ChatViewController.swift in Sources */,
 				FAA6B111294A3DBE006B6934 /* ChatDateCell.swift in Sources */,
+				FA8760512960A02F005FBBB4 /* ChatItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +577,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,7 +608,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

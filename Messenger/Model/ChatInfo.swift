@@ -16,13 +16,25 @@ struct ChatInfo: Codable {
     }
 }
 
-struct Partner: Codable {
+class Partner: Codable {
     let id: Int64
     let uid: String
     let fullname: String
     let avatarUrl: String
     let isOnline: Bool
     let dtaLastSeen: String
+    let lastSeen: Date
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Partner.CodingKeys.self)
+        id = try container.decode(Int64.self, forKey: .id)
+        uid = try container.decode(String.self, forKey: .uid)
+        fullname = try container.decode(String.self, forKey: .fullname)
+        avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
+        isOnline = try container.decode(Bool.self, forKey: .isOnline)
+        dtaLastSeen = try container.decode(String.self, forKey: .dtaLastSeen)
+        lastSeen = dtaLastSeen.asDate ?? Date()
+    }
 }
 
 struct Channel: Codable {

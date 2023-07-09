@@ -37,6 +37,7 @@ import UIKit
     private let textPadding = CGFloat(8)
     private let iconRead = UIImage(named: "done_all")
     private let iconUnread = UIImage(named: "done")
+    private let iconPlay = UIImage(named: "play_24pt")
     private let iconSize = CGFloat(14)
     private let replyDividerWidth = CGFloat(2)
     private var replyDividerHeight = CGFloat(0)
@@ -48,6 +49,7 @@ import UIKit
     private var hasFile = false
     private var hasAudio = false
     private var hasJson = false
+    private var hasVideo = false
     
     private var statusIcon: UIImage? {
         get {
@@ -106,6 +108,7 @@ import UIKit
         hasFile = message.content.mimeType == .file
         hasAudio = message.content.mimeType == .audio
         hasJson = message.content.mimeType == .text
+        hasVideo = message.content.mimeType == .video
         image = nil
         cropImage = false
         if let s = message.content.file?.conversionsImages?["thumb_big"], let url = URL(string: s) {
@@ -131,22 +134,25 @@ import UIKit
         let textRange = NSRange(location: 0, length: text.length)
         let timeRange = NSRange(location: 0, length: time.length)
         
-        let ps = NSMutableParagraphStyle()
-        ps.lineBreakMode = .byTruncatingTail
+        let oneLineParagraphStyle = NSMutableParagraphStyle()
+        oneLineParagraphStyle.lineBreakMode = .byTruncatingTail
+        
+        let textParagraphStyle = NSMutableParagraphStyle()
+        textParagraphStyle.lineSpacing = 2
         
         let singleImage = hasImage && text.length == 0
         
         if isOwn {
-            replyAuthor.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white, .paragraphStyle: ps], range: replyAuthorRange)
-            replyText.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white.withAlphaComponent(0.75), .paragraphStyle: ps], range: replyTextRange)
+            replyAuthor.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white, .paragraphStyle: oneLineParagraphStyle], range: replyAuthorRange)
+            replyText.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.white.withAlphaComponent(0.75), .paragraphStyle: oneLineParagraphStyle], range: replyTextRange)
             
-            text.setAttributes([.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.white], range: textRange)
+            text.setAttributes([.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.white, .paragraphStyle: textParagraphStyle], range: textRange)
             time.setAttributes([.font: UIFont.systemFont(ofSize: 12), .foregroundColor: singleImage ? UIColor.white : UIColor.white.withAlphaComponent(0.75)], range: timeRange)
         } else {
-            replyAuthor.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.black, .paragraphStyle: ps], range: replyAuthorRange)
-            replyText.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.black.withAlphaComponent(0.75), .paragraphStyle: ps], range: replyTextRange)
+            replyAuthor.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.black, .paragraphStyle: oneLineParagraphStyle], range: replyAuthorRange)
+            replyText.setAttributes([.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.black.withAlphaComponent(0.75), .paragraphStyle: oneLineParagraphStyle], range: replyTextRange)
             
-            text.setAttributes([.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.black], range: textRange)
+            text.setAttributes([.font: UIFont.systemFont(ofSize: 16), .foregroundColor: UIColor.black, .paragraphStyle: textParagraphStyle], range: textRange)
             time.setAttributes([.font: UIFont.systemFont(ofSize: 12), .foregroundColor: singleImage ? UIColor.white : UIColor.systemGray], range: timeRange)
         }
         
@@ -431,6 +437,18 @@ import UIKit
             }
             image?.draw(in: imageRect)
             ctx.restoreGState()
+            
+            if hasVideo {
+                if let icon = iconPlay {
+                    let iconRect = CGRect(x: imageRect.midX - icon.size.width / 2, y: imageRect.midY - icon.size.height / 2, width: icon.size.width, height: icon.size.height)
+                    
+                    UIColor.black.withAlphaComponent(0.4).set()
+                    ctx.fillEllipse(in: iconRect.insetBy(dx: -12, dy: -12))
+                    
+                    UIColor.white.set()
+                    icon.draw(at: iconRect.origin)
+                }
+            }
         }
         
         text.draw(in: messageRect.insetBy(dx: textPadding, dy: 0))
